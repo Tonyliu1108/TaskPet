@@ -1,0 +1,279 @@
+.state-assets-trigger {
+  display: inline-flex;
+  height: 34px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 11px;
+  color: #6254cf;
+  background: #f4f1ff;
+  border: 1px solid #ddd7ff;
+  border-radius: 11px;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.state-assets-panel {
+  position: fixed;
+  z-index: 30;
+  top: 62px;
+  right: 20px;
+  width: min(390px, calc(100vw - 40px));
+  max-height: calc(100vh - 82px);
+  padding: 17px;
+  overflow-y: auto;
+  color: #373248;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #e2def0;
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(52, 43, 102, 0.2);
+}
+
+.state-assets-panel > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.state-assets-panel > header span {
+  color: #8d87a1;
+  font-size: calc(8px * var(--ui-font-scale, 1));
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.state-assets-panel > header h2 {
+  margin: 4px 0 3px;
+  font-size: calc(17px * var(--ui-font-scale, 1));
+}
+
+.state-assets-panel > header p {
+  margin: 0;
+  color: #817b91;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+  line-height: 1.55;
+}
+
+.state-assets-panel > header button,
+.state-assets-list > li > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0;
+  color: #756e87;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.state-assets-panel > header button {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  background: #f5f3fa;
+  border-radius: 9px;
+}
+
+.state-assets-panel__progress {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 2px 8px;
+  margin: 14px 0 11px;
+  padding: 11px 12px;
+  background: #f8f6ff;
+  border: 1px solid #ece8ff;
+  border-radius: 13px;
+}
+
+.state-assets-panel__progress strong {
+  color: #6254cf;
+  font-size: calc(15px * var(--ui-font-scale, 1));
+}
+
+.state-assets-panel__progress span {
+  color: #837d92;
+  font-size: calc(9px * var(--ui-font-scale, 1));
+}
+
+.state-assets-panel__progress i {
+  grid-column: 1 / -1;
+  height: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+  background: #e8e3fb;
+  border-radius: 999px;
+}
+
+.state-assets-panel__progress b {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #7565e8, #9a8cf4);
+  border-radius: inherit;
+  transition: width 240ms ease;
+}
+
+.state-assets-list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.state-assets-list > li {
+  display: grid;
+  min-height: 50px;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  background: #fbfafd;
+  border: 1px solid #ece9f2;
+  border-radius: 12px;
+}
+
+.state-assets-list__icon {
+  display: grid;
+  color: #aaa5b5;
+  place-items: center;
+}
+
+.state-assets-list__icon--completed {
+  color: #43a476;
+}
+
+.state-assets-list__icon--generating {
+  color: #6c5ce2;
+}
+
+.state-assets-list__icon--generating svg,
+.state-assets-panel__generate:disabled svg {
+  animation: state-assets-spin 800ms linear infinite;
+}
+
+.state-assets-list > li > div {
+  min-width: 0;
+}
+
+.state-assets-list strong,
+.state-assets-list small {
+  display: block;
+}
+
+.state-assets-list strong {
+  font-size: calc(10px * var(--ui-font-scale, 1));
+}
+
+.state-assets-list small {
+  margin-top: 2px;
+  overflow: hidden;
+  color: #8c8798;
+  font-size: calc(8px * var(--ui-font-scale, 1));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.state-assets-list .state-assets-list__error {
+  color: #b44f55;
+  white-space: normal;
+}
+
+.state-assets-list > li > button {
+  min-height: 26px;
+  padding: 0 7px;
+  color: #6658d5;
+  background: #f1eeff;
+  border-radius: 8px;
+  font-size: calc(8px * var(--ui-font-scale, 1));
+  font-weight: 750;
+}
+
+.state-assets-list > li > button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.state-assets-panel__generate {
+  display: flex;
+  width: 100%;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: #fff;
+  background: #6959dc;
+  border: 0;
+  border-radius: 11px;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.state-assets-panel__generate:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.state-assets-panel__complete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 10px;
+  color: #28775a;
+  background: #eefaf5;
+  border-radius: 11px;
+  font-size: calc(9px * var(--ui-font-scale, 1));
+  font-weight: 700;
+}
+
+:root[data-theme='dark'] .state-assets-trigger {
+  color: #c5bcff;
+  background: #302b47;
+  border-color: #51486f;
+}
+
+:root[data-theme='dark'] .state-assets-panel {
+  color: #e5e1ec;
+  background: rgba(34, 31, 45, 0.99);
+  border-color: #494357;
+  box-shadow: 0 24px 70px rgba(5, 4, 10, 0.45);
+}
+
+:root[data-theme='dark'] .state-assets-panel > header button,
+:root[data-theme='dark'] .state-assets-panel__progress,
+:root[data-theme='dark'] .state-assets-list > li {
+  background: #2b2739;
+  border-color: #464052;
+}
+
+:root[data-theme='dark'] .state-assets-panel__progress i {
+  background: #46405d;
+}
+
+:root[data-theme='dark'] .state-assets-list > li > button {
+  color: #c7bdff;
+  background: #3b3455;
+}
+
+@keyframes state-assets-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 720px) {
+  .state-assets-trigger span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state-assets-list__icon--generating svg,
+  .state-assets-panel__generate:disabled svg {
+    animation: none;
+  }
+}

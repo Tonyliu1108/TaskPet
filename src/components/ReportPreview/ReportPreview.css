@@ -1,0 +1,196 @@
+.report-preview__backdrop {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  display: grid;
+  padding: 28px;
+  background: rgba(35, 31, 58, 0.48);
+  backdrop-filter: blur(7px);
+  place-items: center;
+  animation: report-preview-fade 160ms ease-out both;
+}
+
+.report-preview {
+  display: flex;
+  width: min(680px, 100%);
+  max-height: min(760px, calc(100vh - 56px));
+  flex-direction: column;
+  overflow: hidden;
+  color: #4b475b;
+  background: #fff;
+  border: 1px solid #ded9f5;
+  border-radius: 22px;
+  box-shadow: 0 28px 80px rgba(32, 26, 67, 0.3);
+}
+
+.report-preview__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #f7f5ff, #fff);
+  border-bottom: 1px solid #ebe8f3;
+}
+
+.report-preview__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  color: #c4565f;
+  background: #fcecee;
+  border-radius: 12px;
+  place-items: center;
+}
+
+.report-preview__header div {
+  min-width: 0;
+  flex: 1;
+}
+
+.report-preview__header span {
+  color: #8f899f;
+  font-size: calc(9px * var(--ui-font-scale, 1));
+  font-weight: 700;
+}
+
+.report-preview__header h2 {
+  margin: 3px 0 0;
+  color: #3e3952;
+  font-size: calc(18px * var(--ui-font-scale, 1));
+}
+
+.report-preview__header button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: #777182;
+  background: #fff;
+  border: 1px solid #e6e2ec;
+  border-radius: 10px;
+  cursor: pointer;
+  place-items: center;
+}
+
+.report-preview__body {
+  padding: 20px 24px;
+  overflow-y: auto;
+}
+
+.report-preview__source {
+  margin: 0 0 18px;
+  padding: 9px 11px;
+  color: #716a84;
+  background: #f7f5fc;
+  border-radius: 9px;
+  font-size: calc(9px * var(--ui-font-scale, 1));
+}
+
+.report-preview__body section + section {
+  margin-top: 18px;
+}
+
+.report-preview__body h3 {
+  margin: 0 0 7px;
+  color: #443e58;
+  font-size: calc(12px * var(--ui-font-scale, 1));
+}
+
+.report-preview__body p,
+.report-preview__body li {
+  color: #716c7e;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+  line-height: 1.8;
+}
+
+.report-preview__body p,
+.report-preview__body ul {
+  margin: 0;
+}
+
+.report-preview__body ul {
+  padding-left: 18px;
+}
+
+.report-preview__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 20px;
+  background: #faf9fd;
+  border-top: 1px solid #ebe8f3;
+}
+
+.report-preview__footer span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #7e788e;
+  font-size: calc(9px * var(--ui-font-scale, 1));
+}
+
+.report-preview__footer span svg {
+  color: #46a276;
+}
+
+.report-preview__footer button {
+  min-height: 34px;
+  padding: 0 18px;
+  color: #fff;
+  background: #6757d8;
+  border: 0;
+  border-radius: 10px;
+  font-size: calc(9px * var(--ui-font-scale, 1));
+  font-weight: 700;
+  cursor: pointer;
+}
+
+:root[data-theme='dark'] .report-preview {
+  color: #d7d4e5;
+  background: #211f2d;
+  border-color: #3c374e;
+}
+
+:root[data-theme='dark'] .report-preview__header {
+  background: linear-gradient(135deg, #2c2840, #23202f);
+  border-color: #3b374a;
+}
+
+:root[data-theme='dark'] .report-preview__header h2,
+:root[data-theme='dark'] .report-preview__body h3 {
+  color: #f0edf8;
+}
+
+:root[data-theme='dark'] .report-preview__header button,
+:root[data-theme='dark'] .report-preview__source {
+  color: #c2bdd1;
+  background: #2c2939;
+  border-color: #464154;
+}
+
+:root[data-theme='dark'] .report-preview__body p,
+:root[data-theme='dark'] .report-preview__body li,
+:root[data-theme='dark'] .report-preview__footer span {
+  color: #bbb6ca;
+}
+
+:root[data-theme='dark'] .report-preview__footer {
+  background: #272432;
+  border-color: #3b3748;
+}
+
+@keyframes report-preview-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .report-preview__backdrop { padding: 14px; }
+  .report-preview { max-height: calc(100vh - 28px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .report-preview__backdrop { animation: none; }
+}

@@ -1,0 +1,293 @@
+.file-card--draggable {
+  width: 100%;
+  cursor: grab;
+  font: inherit;
+  text-align: left;
+  touch-action: none;
+  user-select: none;
+  transition: opacity 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.excel-import-card {
+  display: grid;
+  min-height: 82px;
+  cursor: pointer;
+  place-items: center;
+  gap: 3px;
+  padding: 12px;
+  color: #696274;
+  background: rgba(250, 249, 255, 0.88);
+  border: 1px dashed #ccc5df;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.excel-import-card:hover,
+.excel-import-card--requested {
+  color: #6556cc;
+  border-color: #8e80e8;
+  background: #f6f3ff;
+}
+
+.excel-import-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.selected-excel-file {
+  display: grid;
+  gap: 5px;
+}
+
+.file-list {
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.workspace-file-card {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.workspace-file-card.file-card--draggable {
+  cursor: grab;
+}
+
+.workspace-file-card:hover {
+  border-color: #d6d0f7;
+  box-shadow: 0 8px 20px rgba(77, 65, 145, 0.08);
+}
+
+.workspace-file-card--active {
+  padding-right: 76px;
+  background: #f8f6ff;
+  border-color: #9d90ef;
+  box-shadow: 0 0 0 3px rgba(110, 94, 234, 0.07);
+}
+
+.workspace-file-card--missing,
+.workspace-file-card--error {
+  cursor: default;
+  opacity: 0.68;
+}
+
+.workspace-file-card__badge {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  max-width: 66px;
+  overflow: hidden;
+  padding: 3px 6px;
+  color: #6556cc;
+  background: #ece8ff;
+  border-radius: 999px;
+  font-size: calc(6px * var(--ui-font-scale, 1));
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.excel-reselect-action {
+  cursor: pointer;
+  color: #7568c8;
+  font-size: calc(7px * var(--ui-font-scale, 1));
+  text-align: right;
+}
+
+.excel-reselect-action input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.excel-import-card strong {
+  font-size: calc(9px * var(--ui-font-scale, 1));
+}
+
+.excel-import-card small {
+  font-size: calc(7px * var(--ui-font-scale, 1));
+}
+
+.file-card--draggable:hover {
+  border-color: #d6d0f7;
+  box-shadow: 0 8px 20px rgba(77, 65, 145, 0.08);
+  transform: translateY(-1px);
+}
+
+.file-card--requested {
+  border-color: #cfc7fa;
+  box-shadow: 0 0 0 3px rgba(110, 94, 234, 0.07);
+}
+
+.file-card--dragging {
+  opacity: 0.46;
+  cursor: grabbing;
+}
+
+.file-card__drag-action {
+  display: flex;
+  min-width: 14px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-left: auto;
+  color: #aaa4bd;
+  pointer-events: none;
+}
+
+.file-card__drag-action b {
+  padding: 4px 6px;
+  color: #6556cc;
+  background: #f0edff;
+  border-radius: 999px;
+  font-size: calc(6px * var(--ui-font-scale, 1));
+  white-space: nowrap;
+}
+
+.file-drag-preview {
+  position: fixed;
+  z-index: 17;
+  top: var(--file-preview-y);
+  left: var(--file-preview-x);
+  display: flex;
+  width: 205px;
+  min-height: 48px;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  color: #4c495a;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #cfc7fa;
+  border-radius: 12px;
+  box-shadow: 0 13px 28px rgba(61, 50, 126, 0.2);
+  font-size: calc(9px * var(--ui-font-scale, 1));
+  pointer-events: none;
+  transform: translate(13px, 13px);
+}
+
+.file-drag-preview span {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  color: #4b8867;
+  background: #eaf6ef;
+  border-radius: 9px;
+  place-items: center;
+}
+
+.file-drag-preview strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-receive-animation {
+  position: fixed;
+  z-index: 18;
+  top: var(--file-start-y);
+  left: var(--file-start-x);
+  display: flex;
+  width: 124px;
+  height: 37px;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  color: #4c495a;
+  background: #fff;
+  border: 1px solid #cfc7fa;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(75, 61, 159, 0.2);
+  font-size: calc(7px * var(--ui-font-scale, 1));
+  pointer-events: none;
+  animation: file-received 760ms cubic-bezier(0.32, 0.72, 0.35, 1) both;
+}
+
+.file-receive-animation svg {
+  flex: 0 0 auto;
+  color: #4b8867;
+}
+
+.file-receive-animation span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:root[data-theme='dark'] .file-card--draggable:hover,
+:root[data-theme='dark'] .file-card--requested {
+  border-color: #5a5085;
+  box-shadow: 0 0 0 3px rgba(126, 108, 236, 0.08);
+}
+
+:root[data-theme='dark'] .file-card__drag-action b {
+  color: #c3baff;
+  background: #383250;
+}
+
+:root[data-theme='dark'] .file-drag-preview,
+:root[data-theme='dark'] .file-receive-animation {
+  color: #d6d1e1;
+  background: rgba(42, 39, 55, 0.98);
+  border-color: #5a5085;
+}
+
+:root[data-theme='dark'] .excel-import-card {
+  color: #bbb5c7;
+  background: #2c2938;
+  border-color: #514b63;
+}
+
+:root[data-theme='dark'] .excel-import-card:hover,
+:root[data-theme='dark'] .excel-import-card--requested {
+  color: #c3baff;
+  background: #383250;
+  border-color: #7467b1;
+}
+
+:root[data-theme='dark'] .workspace-file-card--active {
+  background: #353047;
+  border-color: #7467b1;
+}
+
+:root[data-theme='dark'] .workspace-file-card__badge {
+  color: #c3baff;
+  background: #453d62;
+}
+
+@keyframes file-received {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(var(--file-target-x) - var(--file-start-x)),
+      calc(var(--file-target-y) - var(--file-start-y))
+    ) scale(0.24);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .file-card--draggable,
+  .file-receive-animation {
+    transition: none;
+    animation: none;
+  }
+}

@@ -1,0 +1,23 @@
+.walking-player {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: end center;
+  transform: scaleX(var(--walking-direction));
+  transform-origin: center bottom;
+}
+
+.walking-player img {
+  position: absolute;
+  top: calc(var(--character-canvas-top-ratio) * 100%);
+  bottom: auto;
+  left: 50%;
+  width: auto;
+  height: calc(var(--character-canvas-scale) * 100%);
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+  user-select: none;
+}

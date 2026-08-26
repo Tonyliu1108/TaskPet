@@ -1,0 +1,85 @@
+.font-scale-control {
+  position: relative;
+}
+
+.font-scale-control__trigger {
+  display: inline-flex;
+  height: 34px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  color: #565064;
+  background: #faf9fc;
+  border: 1px solid #e8e6ee;
+  border-radius: 11px;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.font-scale-control__trigger b {
+  font-size: calc(12px * var(--ui-font-scale, 1));
+  letter-spacing: -0.04em;
+}
+
+.font-scale-control__menu {
+  position: absolute;
+  z-index: 35;
+  top: calc(100% + 9px);
+  right: 0;
+  display: grid;
+  width: 174px;
+  gap: 5px;
+  padding: 10px;
+  color: #4e485b;
+  background: rgba(255, 255, 255, 0.99);
+  border: 1px solid #e5e1ec;
+  border-radius: 14px;
+  box-shadow: 0 16px 45px rgba(52, 43, 102, 0.18);
+}
+
+.font-scale-control__menu > strong {
+  padding: 3px 5px 5px;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+}
+
+.font-scale-control__menu button {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 9px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  font-size: calc(10px * var(--ui-font-scale, 1));
+  cursor: pointer;
+}
+
+.font-scale-control__menu button:hover,
+.font-scale-control__menu button[data-active='true'] {
+  color: #6254cf;
+  background: #f0edff;
+}
+
+.font-scale-control__menu small {
+  color: #918a9f;
+  font-size: calc(8px * var(--ui-font-scale, 1));
+}
+
+:root[data-theme='dark'] .font-scale-control__trigger,
+:root[data-theme='dark'] .font-scale-control__menu {
+  color: #ddd8e6;
+  background: #292634;
+  border-color: #494554;
+}
+
+:root[data-theme='dark'] .font-scale-control__menu button[data-active='true'] {
+  color: #cbc4ff;
+  background: #3a3452;
+}
+
+@media (max-width: 720px) {
+  .font-scale-control__trigger span { display: none; }
+}

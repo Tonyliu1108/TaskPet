@@ -1,0 +1,71 @@
+.real-excel-preview {
+  min-height: 0;
+  overflow: visible;
+  padding: 26px clamp(20px, 4vw, 52px) 48px;
+  color: var(--text-primary, #34313d);
+  background: var(--surface-page, #f8f7fb);
+}
+
+.real-excel-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.real-excel-header > span {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  color: #3d805e;
+  background: #e8f6ee;
+  border-radius: 13px;
+  place-items: center;
+}
+
+.real-excel-header h1 { margin: 2px 0; font-size: calc(22px * var(--ui-font-scale, 1)); }
+.real-excel-header p, .real-excel-header small { margin: 0; color: #777181; }
+.real-excel-header b { display: flex; align-items: center; gap: 5px; margin-left: auto; color: #357a55; font-size: calc(9px * var(--ui-font-scale, 1)); }
+
+.real-excel-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.real-excel-metrics article, .real-excel-card {
+  background: var(--surface-card, #fff);
+  border: 1px solid var(--border-color, #e8e4ee);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(52, 43, 78, 0.05);
+}
+
+.real-excel-metrics article { display: grid; gap: 6px; padding: 15px; }
+.real-excel-metrics span { color: #777181; font-size: calc(8px * var(--ui-font-scale, 1)); }
+.real-excel-metrics strong { overflow-wrap: anywhere; font-size: calc(14px * var(--ui-font-scale, 1)); }
+.real-excel-card { margin-bottom: 14px; padding: 17px; }
+.real-excel-card h2 { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; font-size: calc(12px * var(--ui-font-scale, 1)); }
+
+.real-excel-dataset dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin: 0;
+}
+.real-excel-dataset dl div { padding: 9px; background: rgba(113, 94, 207, 0.05); border-radius: 9px; }
+.real-excel-dataset dt { color: #777181; font-size: calc(7px * var(--ui-font-scale, 1)); }
+.real-excel-dataset dd { margin: 4px 0 0; font-size: calc(9px * var(--ui-font-scale, 1)); font-weight: 700; }
+.real-excel-columns { color: #777181; font-size: calc(8px * var(--ui-font-scale, 1)); }
+.real-excel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.real-excel-table-wrap { overflow-x: auto; }
+.real-excel-card table { width: 100%; border-collapse: collapse; font-size: calc(8px * var(--ui-font-scale, 1)); }
+.real-excel-card th, .real-excel-card td { padding: 8px; border-bottom: 1px solid var(--border-color, #ece8f0); text-align: left; white-space: nowrap; }
+.real-excel-card th { color: #777181; font-weight: 600; }
+.real-excel-empty, .real-excel-warnings p, .real-excel-warnings li { color: #777181; font-size: calc(8px * var(--ui-font-scale, 1)); }
+.real-excel-warnings small { display: block; margin-top: 10px; color: #6b6575; }
+
+@media (max-width: 900px) {
+  .real-excel-metrics, .real-excel-dataset dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .real-excel-grid { grid-template-columns: 1fr; }
+}
